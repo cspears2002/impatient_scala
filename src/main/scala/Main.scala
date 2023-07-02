@@ -6,6 +6,10 @@
 
 def msg = "I was compiled by Scala 3. :)"
 
-def product(s: String) = 
+def product(s: String): Long =
   var x: Long = 1
-  s.foldLeft(x)(_ * _)
+  if s.length() == 1 then
+    x * s.head.toLong
+  else
+    x * s.head.toLong * product(s.tail)
+  
