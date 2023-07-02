@@ -8,4 +8,4 @@ def msg = "I was compiled by Scala 3. :)"
 
 def product(s: String) = 
   var x: Long = 1
-   s.foldLeft(x)(_ * _)
+  s.foldLeft(x)(_ * _)
