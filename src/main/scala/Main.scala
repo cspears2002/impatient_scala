@@ -19,6 +19,15 @@ import scala.math._
   val day = 9
   date"$year-$month-$day"
 
+  val thisYear = 2023
+  date"$thisYear-7-22"
+
+  val thisMonth = 7
+  date"2023-$thisMonth-22"
+
+  val thisDay = 22
+  date"$thisYear-7-$thisDay"
+
   
 def msg = "I was compiled by Scala 3. :)"
 
@@ -48,7 +57,7 @@ def powerOf(x: Int, n: Int): Double =
 
 implicit class MyDateInterpolator(val sc: StringContext) extends AnyVal {
   def date(args: Any*): LocalDate = {
-    val dateStr = sc.parts.mkString
+    val dateStr = sc.s(args: _*)
     val dateStrArray = dateStr.split("-")
     val year = dateStrArray(0).toInt
     val month = dateStrArray(1).toInt
