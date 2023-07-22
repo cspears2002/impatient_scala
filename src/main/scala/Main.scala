@@ -12,12 +12,14 @@ import scala.math._
   println(powerOf(2, 0))
   println(powerOf(2, -1))
 
+  date"2022-7-9"
+
   val year = 2023
   val month = 7
   val day = 9
   date"$year-$month-$day"
 
-
+  
 def msg = "I was compiled by Scala 3. :)"
 
 
@@ -46,7 +48,7 @@ def powerOf(x: Int, n: Int): Double =
 
 implicit class MyDateInterpolator(val sc: StringContext) extends AnyVal {
   def date(args: Any*): LocalDate = {
-    val dateStr = sc.parts.mkString()
+    val dateStr = sc.parts.mkString
     val dateStrArray = dateStr.split("-")
     val year = dateStrArray(0).toInt
     val month = dateStrArray(1).toInt
