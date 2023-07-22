@@ -5,12 +5,18 @@ import scala.math._
   println(msg)
 
   println(product("Hello"))
-
+  
   println(powerOf(2, 2))
   println(powerOf(2, 3))
   println(powerOf(2, 0))
   println(powerOf(2, -1))
 
+  val year = 2023
+  val month = 7
+  val day = 9
+  date"$year-$month-$day"
+
+  
 def msg = "I was compiled by Scala 3. :)"
 
 
@@ -35,4 +41,18 @@ def powerOf(x: Int, n: Int): Double =
     1
   else
     1 / powerOf(x, -1*n)
+
+
+implicit class MyDateInterpolator(val sc: StringContext) extends AnyVal {
+  def date(args: Any*): LocalDate = {
+    val dateStr = sc.parts.mkString()
+    val dateStrArray = dateStr.split("-")
+    val year = dateStrArray(0).toInt
+    val month = dateStrArray(1).toInt
+    val day = dateStrArray(2).toInt
+    LocalDate.of(year, month, day)
+  }
+}
+
+
   
