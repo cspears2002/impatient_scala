@@ -1,3 +1,4 @@
+import java.time.LocalDate
 import scala.math._
 
 @main def hello: Unit =
@@ -16,7 +17,7 @@ import scala.math._
   val day = 9
   date"$year-$month-$day"
 
-  
+
 def msg = "I was compiled by Scala 3. :)"
 
 
