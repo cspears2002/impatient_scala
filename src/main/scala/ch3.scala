@@ -14,6 +14,8 @@ import scala.util.Random
 
     val myArray = Array(1, 0, -5, 2, 4)
     // Want Array(1, 2, 4, 0, -5)
+    val newArray = posToNeg(myArray)
+    newArray.foreach(println)
 
 
 def randArrayOfInts(n: Int): Array[Int] =
@@ -32,4 +34,11 @@ def swapInts(x: Array[Int]): Array[Int] =
 
 def swapInts2(x: Array[Int]): Array[Int] = 
     (for {y <- x.grouped(2); z <- y.reverse} yield z).toArray
+
+
+def posToNeg(myArray: Array[Int]): Array[Int] =
+    val posArray: Array[Int] = myArray.filter(_ > 0)
+    val zeroArray: Array[Int] = myArray.filter(_ == 0)
+    val negArray: Array[Int] = myArray.filter(_ < 0)
+    Array(posArray, zeroArray, negArray).flatten
     
