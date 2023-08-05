@@ -17,6 +17,10 @@ import scala.util.Random
     val newArray = posToNeg(myArray)
     newArray.foreach(println)
 
+    val arrayDbles: Array[Double] = Array(1.0, 2.0, 3.0, 4.0) 
+    val avg = computeAvg(arrayDbles)
+    println(s"The average is $avg.")
+
 
 def randArrayOfInts(n: Int): Array[Int] =
     val rand = Random()
@@ -42,3 +46,6 @@ def posToNeg(myArray: Array[Int]): Array[Int] =
     val negArray: Array[Int] = myArray.filter(_ < 0)
     Array(posArray, zeroArray, negArray).flatten
     
+
+def computeAvg(myArray: Array[Double]): Double =
+    myArray.sum / myArray.length
