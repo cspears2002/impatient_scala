@@ -40,6 +40,11 @@ import scala.util.Random
     val arrayBuf2 = ArrayBuffer(1, -1, 2, -4, 7, 6, -9)
     val newArrayBuf = removeNegNum(arrayBuf2)
     newArrayBuf.foreach(println)
+    println("\n")
+
+    val arrayBuf3 = ArrayBuffer(1, -1, 2, -4, 7, 6, -9)
+    val newArrayBuf2 = removeNegNum2(arrayBuf3)
+    newArrayBuf2.foreach(println)
 
 
 def randArrayOfInts(n: Int): Array[Int] =
@@ -87,4 +92,23 @@ def removeNegNum(myArrayBuffer: ArrayBuffer[Int]): ArrayBuffer[Int] =
         println(s"Remove $y")
         myArrayBuffer.remove(y)
     }
+    myArrayBuffer
+
+
+def removeNegNum2(myArrayBuffer: ArrayBuffer[Int]): ArrayBuffer[Int] =
+    var idx = 0
+    var firstNeg = 0
+    var found = false
+    while (idx < myArrayBuffer.length && !found) do
+        if myArrayBuffer(idx) < 0 then {
+            firstNeg = idx
+            found = true
+        } else {
+            idx += 1
+        }
+    val positionsToKeep = for i <- firstNeg + 1 to myArrayBuffer.length - 1 if myArrayBuffer(i) >= 0 yield i
+    for j <- positionsToKeep.indices do {
+         myArrayBuffer(j + firstNeg + 1) = myArrayBuffer(positionsToKeep(j))
+    }
+    myArrayBuffer.dropRightInPlace(myArrayBuffer.length - positionsToKeep.length - firstNeg - 1)
     myArrayBuffer
