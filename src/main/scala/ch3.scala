@@ -45,6 +45,11 @@ import scala.util.Random
     val arrayBuf3 = ArrayBuffer(1, -1, 2, -4, 7, 6, -9)
     val newArrayBuf2 = removeNegNum2(arrayBuf3)
     newArrayBuf2.foreach(println)
+    println("\n")
+
+    val tzArrayBuffer = sortTimeZones()
+    tzArrayBuffer.foreach(println)
+    println("\")
 
 
 def randArrayOfInts(n: Int): Array[Int] =
@@ -112,3 +117,13 @@ def removeNegNum2(myArrayBuffer: ArrayBuffer[Int]): ArrayBuffer[Int] =
     }
     myArrayBuffer.dropRightInPlace(myArrayBuffer.length - positionsToKeep.length - firstNeg - 1)
     myArrayBuffer
+
+
+def sortTimeZones(): ArrayBuffer[String] =
+    import java.util.TimeZone.getAvailableIDs
+    val americanTZ = ArrayBuffer[String]()
+    for tz <- getAvailableIDs() do
+        if tz.startsWith("America") then
+            americanTZ.append(tz.stripPrefix("America/"))
+    americanTZ
+    
