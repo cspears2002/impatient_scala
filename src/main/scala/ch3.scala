@@ -49,7 +49,7 @@ import scala.util.Random
 
     val tzArrayBuffer = sortTimeZones()
     tzArrayBuffer.foreach(println)
-    println("\")
+    println("\n")
 
 
 def randArrayOfInts(n: Int): Array[Int] =
