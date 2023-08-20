@@ -1,6 +1,6 @@
 import scala.collection.mutable.ArrayBuffer
-
 import scala.util.Random
+import scala.collection.mutable.Buffer
 
 @main def mainFunc() =
     val arrayOfInt = randArrayOfInts(5)
@@ -50,6 +50,9 @@ import scala.util.Random
     val tzArrayBuffer = sortTimeZones()
     tzArrayBuffer.foreach(println)
     println("\n")
+
+    val flavorBuf = getFlavors()
+    flavorBuf.foreach(println)
 
 
 def randArrayOfInts(n: Int): Array[Int] =
@@ -127,3 +130,12 @@ def sortTimeZones(): ArrayBuffer[String] =
             americanTZ.append(tz.stripPrefix("America/"))
     americanTZ
     
+
+def getFlavors(): Buffer[String] =
+    import java.awt.datatransfer.*
+    import scala.jdk.CollectionConverters.ListHasAsScala
+    
+    val flavors = SystemFlavorMap.getDefaultFlavorMap().asInstanceOf[SystemFlavorMap]
+    val flavorLst = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
+    val flavorBuf: Buffer[String] = flavorLst.asScala
+    flavorBuf
