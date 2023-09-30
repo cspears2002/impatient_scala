@@ -1,7 +1,8 @@
 import scala.io.Source
 
 @main def ch4MainFunc() =
-    readMyFile()
+    getSysProps()
+
 
 def readMyFile(): Unit =
     var wordCount = java.util.TreeMap[String, Int]()
@@ -19,3 +20,9 @@ def readMyFile(): Unit =
     
     wordCount.forEach((k, v) => println(s"$k: $v"))
 
+
+def getSysProps(): Unit =
+    import java.lang.System
+    import scala.jdk.CollectionConverters.*
+    val sysProps = System.getProperties.asScala
+    for (k, v) <- sysProps do println(s"$k \t| $v")
