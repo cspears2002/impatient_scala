@@ -25,4 +25,5 @@ def getSysProps(): Unit =
     import java.lang.System
     import scala.jdk.CollectionConverters.*
     val sysProps = System.getProperties.asScala
-    for (k, v) <- sysProps do println(s"$k \t| $v")
+    val width = sysProps.keys.reduce((a, i) => if (a.size < i.size) i else a).size
+    for (k, v) <- sysProps do println(k + (" " * (width - k.length())) + " | " + v)
