@@ -3,6 +3,15 @@ import scala.io.Source
 @main def ch4MainFunc() =
     getSysProps()
 
+    val minMaxOpt = minMax(Array(2, 1, 4, 5, 3))
+    if minMaxOpt.isEmpty
+        then println("Empty array")
+        else println(minMaxOpt.get)
+
+    val emptyArray = Array[Int]()
+    if emptyArray.isEmpty
+        then println("Empty array")
+        else println(minMaxOpt.get)
 
 def readMyFile(): Unit =
     var wordCount = java.util.TreeMap[String, Int]()
@@ -27,3 +36,11 @@ def getSysProps(): Unit =
     val sysProps = System.getProperties.asScala
     val width = sysProps.keys.reduce((a, i) => if (a.size < i.size) i else a).size
     for (k, v) <- sysProps do println(k + (" " * (width - k.length())) + " | " + v)
+
+
+def minMax(x: Array[Int]): Option[(Int, Int)] =
+    if (x.isEmpty) {
+        None
+    } else {
+        Some(x.min, x.max)
+    }
