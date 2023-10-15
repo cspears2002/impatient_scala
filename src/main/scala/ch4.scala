@@ -1,17 +1,17 @@
 import scala.io.*
 
 @main def ch4MainFunc() =
-    // getSysProps()
+    getSysProps()
 
-    // val minMaxOpt = minMax(Array(2, 1, 4, 5, 3))
-    // if minMaxOpt.isEmpty
-    //     then println("Empty array")
-    //     else println(minMaxOpt.get)
+    val minMaxOpt = minMax(Array(2, 1, 4, 5, 3))
+    if minMaxOpt.isEmpty
+        then println("Empty array")
+        else println(minMaxOpt.get)
 
-    // val emptyArray = Array[Int]()
-    // if emptyArray.isEmpty
-    //     then println("Empty array")
-    //     else println(minMaxOpt.get)
+    val emptyArray = Array[Int]()
+    if emptyArray.isEmpty
+        then println("Empty array")
+        else println(minMaxOpt.get)
 
     findMatch()
 
@@ -58,4 +58,7 @@ def findMatch(): Unit =
     val textFile = "/usr/share/dict/words"
     val words = Source.fromFile(textFile).mkString.split("\n")
     val matches = words.find(word => (word.startsWith(firstLetter) && word.endsWith(lastLetter)))
-    println(matches.get)
+    if matches.isEmpty then
+        println("No matches!")
+    else
+        println(matches.get)
