@@ -13,8 +13,12 @@ import scala.io.*
         then println("Empty array")
         else println(minMaxOpt.get)
 
-    findMatch()
+    findMatch()    
 
+    val myValues = Array(1, 2, 3, 4, 5)
+    println(lteqgt(myValues, 3))
+
+    
 def readMyFile(): Unit =
     var wordCount = java.util.TreeMap[String, Int]()
 
@@ -62,3 +66,9 @@ def findMatch(): Unit =
         println("No matches!")
     else
         println(matches.get)
+
+def lteqgt(values: Array[Int], v: Int): (Int, Int, Int) =
+    val lessThan = values.filter(_ < v)
+    val equalTo = values.filter(_ == v)
+    val greaterThan = values.filter(_ > v)
+    (lessThan.length, equalTo.length, greaterThan.length)

@@ -17,3 +17,5 @@ def returnInt(someInt: Option[Int]): Int =
     someInt.getOrElse(0)
 returnInt(Some(7))
 returnInt(None)
+
+val hello = "Hello".zip("World")
