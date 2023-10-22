@@ -13,4 +13,7 @@ val dayMap = scala.collection.mutable.LinkedHashMap("Sunday" -> java.util.Calend
                                                     "Saturday" -> java.util.Calendar.SATURDAY)
 println(dayMap.keySet)
 
-   
+def returnInt(someInt: Option[Int]): Int =
+    someInt.getOrElse(0)
+returnInt(Some(7))
+returnInt(None)
