@@ -27,6 +27,8 @@ class Time(private var hours: Int, private var minutes: Int):
     def currentMinutes = minutes
     def currentMinutes_=(newMinutes: Int) =
         if newMinutes >= 0 && newMinutes <= 59 then minutes = newMinutes
+    def minutesSinceMidnight: Int =
+        (currentHour * 60) + currentMinutes
     def before(other: Time): Boolean =
         val totalMinutes = (currentHour * 60) + currentMinutes
         val otherMinutes = (other.currentHour * 60) + other.currentMinutes
@@ -51,6 +53,7 @@ class Time(private var hours: Int, private var minutes: Int):
     val myTime = Time(7, 30)
     println(myTime.currentHour)
     println(myTime.currentMinutes)
+    println(myTime.minutesSinceMidnight)
     val otherTime = Time(6, 30)
     println(myTime.before(otherTime))
     val someOtherTime = Time(8, 30)
