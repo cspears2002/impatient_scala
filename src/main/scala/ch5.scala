@@ -20,15 +20,17 @@ class BankAccount:
         balance = balance - myWithdrawal
 
 
-class Time:
-    private var hours: Int = 0
-    private var minutes: Int = 0
+class Time(private var hours: Int, private var minutes: Int):
     def currentHour = hours
     def currentHour_=(newHour: Int) =
         if newHour >= 0 && newHour <= 23 then hours = newHour
     def currentMinutes = minutes
     def currentMinutes_=(newMinutes: Int) =
         if newMinutes >= 0 && newMinutes <= 59 then minutes = newMinutes
+    def before(other: Time): Boolean =
+        val totalMinutes = (currentHour * 60) + currentMinutes
+        val otherMinutes = (other.currentHour * 60) + other.currentMinutes
+        if totalMinutes < otherMinutes then true else false
     
 
 @main def ch5MainFunc() =
@@ -46,8 +48,8 @@ class Time:
     myAccount.withdraw(1.00)
     println(myAccount.myBalance)
 
-    val myTime = Time()
-    myTime.currentHour = 7
-    myTime.currentMinutes = 30
+    val myTime = Time(7, 30)
     println(myTime.currentHour)
     println(myTime.currentMinutes)
+    val otherTime = Time(6, 30)
+    println(myTime.before(otherTime))
