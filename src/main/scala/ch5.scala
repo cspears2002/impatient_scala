@@ -53,3 +53,5 @@ class Time(private var hours: Int, private var minutes: Int):
     println(myTime.currentMinutes)
     val otherTime = Time(6, 30)
     println(myTime.before(otherTime))
+    val someOtherTime = Time(8, 30)
+    println(myTime.before(someOtherTime))
