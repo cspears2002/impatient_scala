@@ -35,6 +35,11 @@ class Time(private var hours: Int, private var minutes: Int):
         if totalMinutes < otherMinutes then true else false
     
 
+class Person(private var privateAge: Int):
+    if privateAge < 0 then privateAge = 0
+    def age = privateAge
+        
+
 @main def ch5MainFunc() =
     val myCounter = Counter()
     myCounter.increment()
@@ -58,3 +63,8 @@ class Time(private var hours: Int, private var minutes: Int):
     println(myTime.before(otherTime))
     val someOtherTime = Time(8, 30)
     println(myTime.before(someOtherTime))
+
+    val ted = Person(20)
+    println(s"Ted's age: ${ted.age}")
+    val babyTed = Person(-1)
+    println(s"Baby Ted's age: ${babyTed.age}")
