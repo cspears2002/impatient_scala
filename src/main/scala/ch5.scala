@@ -40,6 +40,11 @@ class Person(private var privateAge: Int):
     def age = privateAge
         
 
+class OtherPerson(name: String = "Fred Smith"):
+    val firstName = name.split("\\s")(0)
+    val lastName = name.split("\\s")(1)
+
+
 @main def ch5MainFunc() =
     val myCounter = Counter()
     myCounter.increment()
