@@ -13,3 +13,5 @@ class Car(val manufacturer: String, val model: String, val year: Int = -1, var l
     println(myCar3.description())
     val myCar4 = Car("Toyata", "Prius")
     println(myCar4.description())
+    myCar4.license = "KOOL 4 LIFE"
+    println(myCar4.description())
