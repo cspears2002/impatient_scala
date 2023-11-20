@@ -1,4 +1,6 @@
 import scala.compiletime.ops.double
+
+
 class Counter:
     private var value = 0
     def increment() =
@@ -73,3 +75,7 @@ class OtherPerson(name: String = "Fred Smith"):
     println(s"Ted's age: ${ted.age}")
     val babyTed = Person(-1)
     println(s"Baby Ted's age: ${babyTed.age}")
+
+    val fredSmith = OtherPerson()
+    println(s"${fredSmith.firstName}")
+    println(s"${fredSmith.lastName}")
