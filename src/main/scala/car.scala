@@ -3,7 +3,7 @@ class Car(val manufacturer: String, val model: String, val year: Int = -1, var l
     def description() = s"$manufacturer $model $year license plate: $license"
 
 
-@main def mainFunc() =
+@main def mainCarFunc() =
 
     val myCar1 = Car("Toyota", "Prius", 2016, "MYCAR")
     println(myCar1.description())
