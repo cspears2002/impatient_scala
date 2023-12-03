@@ -1,21 +1,32 @@
 import scala.compiletime.ops.double
 
-object Conversions {
-  def inchesToCentimeters(inches: Double): Double =
-    inches * 2.54
 
-  def gallonsToLiters(gallons: Double): Double =
-    gallons * 3.78541
+abstract class UnitConversion() {
+    def convert(units: Double): Double
+}
 
-  def milesToKilometers(miles: Double): Double =
-    miles * 1.60934
+
+object InchesToCentimeters extends UnitConversion() {
+    override def convert(inches: Double): Double =
+        inches * 2.54
+}
+
+
+object GallonsToLiters extends UnitConversion() {
+    override def convert(gallons: Double): Double =
+        gallons * 3.78541
+}
+
+object MilesToKilometers extends UnitConversion() {
+    override def convert(miles: Double): Double =
+        miles * 1.60934
 }
 
 
 @main def convertStuff(): Unit =
-    val cm = Conversions.inchesToCentimeters(1)
+    val cm = InchesToCentimeters.convert(1)
     println(s"1 inch = $cm cm")
-    val liters = Conversions.gallonsToLiters(1)
+    val liters = GallonsToLiters.convert(1)
     println(s"1 gallon = $liters liters")
-    val km = Conversions.milesToKilometers(1)
+    val km = MilesToKilometers.convert(1)
     println(s"1 mile = $km km")
