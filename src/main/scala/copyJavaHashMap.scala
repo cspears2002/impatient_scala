@@ -1,7 +1,8 @@
-import java.util.HashMap as javaUtilHashMap
-import scala.collection.mutable.HashMap as scalaHashMap
-
 @main def copyJavaHashMap(): Unit =
+
+    import java.util.HashMap as javaUtilHashMap
+    import scala.collection.mutable.HashMap as scalaHashMap
+
     val javaHashMap = javaUtilHashMap[String, Int]
     javaHashMap.put("a", 1)
     javaHashMap.put("b", 2)
